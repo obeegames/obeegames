@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>OBEE Games — Coming Soon</title>
+  <meta name="description" content="OBEE Games is an independent game studio. Coming soon." />
+
+  <style>
+    /* ======= OBEE Games — single-file landing page ======= */
+
+    :root{
+      --bg0:#050814;
+      --bg1:#0b1026;
+      --card:rgba(255,255,255,.06);
+      --card2:rgba(255,255,255,.09);
+      --stroke:rgba(255,255,255,.14);
+      --text:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.70);
+      --muted2:rgba(255,255,255,.55);
+      --shadow: 0 20px 60px rgba(0,0,0,.45);
+      --shadow2: 0 12px 30px rgba(0,0,0,.35);
+      --radius: 22px;
+
+      /* Accent tuned to a “friendly electric blue” that will match your logo well */
+      --accent:#5b7cff;
+      --accent2:#55d6ff;
+      --good:#7CFFB2;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      color:var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      line-height:1.45;
+      overflow-x:hidden;
+      background:
+        radial-gradient(1200px 700px at 20% 0%, rgba(91,124,255,.25), transparent 60%),
+        radial-gradient(900px 600px at 80% 10%, rgba(85,214,255,.18), transparent 55%),
+        radial-gradient(900px 600px at 60% 110%, rgba(124,255,178,.10), transparent 60%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+    }
+
+    /* subtle star/noise vibe without images */
+    body:before{
+      content:"";
+      position:fixed; inset:0;
+      pointer-events:none;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(255,255,255,.08) 0 1px, transparent 2px),
+        radial-gradient(circle at 42% 32%, rgba(255,255,255,.06) 0 1px, transparent 2px),
+        radial-gradient(circle at 72% 22%, rgba(255,255,255,.06) 0 1px, transparent 2px),
+        radial-gradient(circle at 86% 66%, rgba(255,255,255,.05) 0 1px, transparent 2px),
+        radial-gradient(circle at 24% 72%, rgba(255,255,255,.05) 0 1px, transparent 2px);
+      opacity:.55;
+      mix-blend-mode:screen;
+    }
+
+    .wrap{
+      min-height:100%;
+      display:grid;
+      place-items:center;
+      padding:48px 18px;
+    }
+
+    .container{
+      width:100%;
+      max-width:980px;
+    }
+
+    .hero{
+      position:relative;
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.05));
+      border:1px solid var(--stroke);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+
+    /* glow accents */
+    .hero:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(500px 220px at 18% 10%, rgba(91,124,255,.35), transparent 70%),
+        radial-gradient(520px 260px at 80% 0%, rgba(85,214,255,.25), transparent 70%),
+        radial-gradient(520px 260px at 60% 120%, rgba(124,255,178,.12), transparent 70%);
+      pointer-events:none;
+      filter: blur(10px);
+      opacity:.9;
+    }
+
+    .content{
+      position:relative;
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:28px;
+      padding:34px;
+    }
+
+    @media (max-width: 860px){
+      .content{grid-template-columns:1fr; padding:26px;}
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:16px;
+    }
+
+    .logoWrap{
+      width:92px; height:92px;
+      border-radius:18px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.16);
+      display:grid;
+      place-items:center;
+      box-shadow: var(--shadow2);
+      overflow:hidden;
+    }
+
+    /* IMPORTANT: your logo file should be named logo.png in the same folder */
+    .logo{
+      width:86%;
+      height:auto;
+      display:block;
+      filter: drop-shadow(0 12px 18px rgba(0,0,0,.35));
+    }
+
+    .badgeRow{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin:16px 0 18px;
+    }
+    .badge{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      color: var(--muted);
+      font-weight:600;
+      font-size: 13px;
+      letter-spacing:.2px;
+    }
+    .dot{
+      width:8px;height:8px;border-radius:50%;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 0 3px rgba(91,124,255,.14);
+    }
+
+    h1{
+      margin:10px 0 8px;
+      font-size: clamp(34px, 4.6vw, 56px);
+      line-height:1.05;
+      letter-spacing:-0.8px;
+    }
+
+    .sub{
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: clamp(16px, 1.6vw, 18px);
+      max-width: 52ch;
+    }
+
+    .motto{
+      display:inline-block;
+      margin-top:10px;
+      font-weight:800;
+      color: rgba(255,255,255,.90);
+      letter-spacing:.2px;
+    }
+    .motto em{
+      font-style:normal;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color: transparent;
+    }
+
+    .rightCard{
+      border-radius:18px;
+      background: rgba(0,0,0,.22);
+      border:1px solid rgba(255,255,255,.14);
+      padding:18px;
+      align-self:start;
+      box-shadow: var(--shadow2);
+    }
+
+    .rightTitle{
+      margin:0 0 8px;
+      font-size:16px;
+      font-weight:800;
+      letter-spacing:.2px;
+    }
+
+    .rightText{
+      margin:0 0 14px;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.6;
+    }
+
+    .ctaRow{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:18px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      text-decoration:none;
+      font-weight:800;
+      letter-spacing:.2px;
+      transition: transform .08s ease, background .15s ease, border-color .15s ease;
+      cursor:pointer;
+      user-select:none;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.10);
+      border-color: rgba(255,255,255,.22);
+    }
+    .btn:active{ transform: translateY(0); }
+
+    .btnPrimary{
+      background: linear-gradient(90deg, rgba(91,124,255,.92), rgba(85,214,255,.86));
+      border-color: rgba(255,255,255,.16);
+      color: #0b1026;
+    }
+    .btnPrimary:hover{
+      background: linear-gradient(90deg, rgba(91,124,255,1), rgba(85,214,255,.95));
+    }
+
+    .mini{
+      margin-top:14px;
+      color: var(--muted2);
+      font-size: 13px;
+      line-height:1.6;
+    }
+
+    .grid{
+      margin-top:16px;
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+    }
+    @media (max-width: 860px){
+      .grid{grid-template-columns:1fr;}
+    }
+
+    .tile{
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      padding:16px;
+    }
+    .tile h3{
+      margin:0 0 6px;
+      font-size:14px;
+      letter-spacing:.2px;
+    }
+    .tile p{
+      margin:0;
+      color: var(--muted);
+      font-size:13px;
+      line-height:1.6;
+    }
+
+    footer{
+      margin-top:18px;
+      text-align:center;
+      color: var(--muted2);
+      font-size: 13px;
+    }
+
+    .smallLink{
+      color: rgba(255,255,255,.75);
+      text-decoration:none;
+      border-bottom: 1px dashed rgba(255,255,255,.25);
+    }
+    .smallLink:hover{ color: rgba(255,255,255,.92); }
+
+    /* tiny icons (no external files) */
+    .ic{
+      width:18px;height:18px; display:inline-block;
+    }
+    .ic svg{width:100%;height:100%}
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="container">
+      <section class="hero" aria-label="OBEE Games Coming Soon">
+        <div class="content">
+          <!-- LEFT -->
+          <div>
+            <div class="brand">
+              <div class="logoWrap" aria-hidden="true">
+                <img src="logo.png" class="logo" alt="OBEE Games Logo">
+              </div>
+              <div>
+                <div class="badgeRow">
+                  <span class="badge"><span class="dot"></span>Independent Game Studio</span>
+                  <span class="badge">Southern California</span>
+                </div>
+              </div>
+            </div>
+
+            <h1>OBEE Games</h1>
+            <p class="sub">
+              Fun-first games built for laughter, replayability, and “one more round.”
+              <span class="motto">Motto: <em>Is it fun?</em></span>
+            </p>
+
+            <div class="ctaRow">
+              <a class="btn btnPrimary" href="mailto:ken.obrien@obeegames.com?subject=OBEE%20Games%20Inquiry">
+                <span class="ic" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M4 7.5v9A2.5 2.5 0 0 0 6.5 19h11A2.5 2.5 0 0 0 20 16.5v-9A2.5 2.5 0 0 0 17.5 5h-11A2.5 2.5 0 0 0 4 7.5Z" stroke="currentColor" stroke-width="1.6"/>
+                    <path d="m6 7 6 5 6-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                Email Us
+              </a>
+
+              <!-- Optional: if you have a Handshake job post URL, paste it below -->
+              <a class="btn" href="#" onclick="alert('Add your Handshake job link here (or remove this button).'); return false;">
+                <span class="ic" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M7.5 3.5h9A2.5 2.5 0 0 1 19 6v12a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 5 18V6a2.5 2.5 0 0 1 2.5-2.5Z" stroke="currentColor" stroke-width="1.6"/>
+                    <path d="M9 7h6M9 10.5h6M9 14h4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                  </svg>
+                </span>
+                Careers
+              </a>
+            </div>
+
+            <div class="grid" role="list" aria-label="What to expect">
+              <div class="tile" role="listitem">
+                <h3>Coming Soon</h3>
+                <p>We’re building our first releases now. Details will roll out as we approach launch.</p>
+              </div>
+              <div class="tile" role="listitem">
+                <h3>Creator Upside</h3>
+                <p>We believe creators should share in the success of what they build—title by title.</p>
+              </div>
+              <div class="tile" role="listitem">
+                <h3>Fun-First</h3>
+                <p>Everything runs through one filter: clarity, delight, and replayability.</p>
+              </div>
+            </div>
+
+            <p class="mini">
+              Contact: <a class="smallLink" href="mailto:ken.obrien@obeegames.com">ken.obrien@obeegames.com</a>
+              &nbsp;•&nbsp; © OBEE Games, LLC
+            </p>
+          </div>
+
+          <!-- RIGHT -->
+          <aside class="rightCard" aria-label="Quick info">
+            <p class="rightTitle">We’re hiring</p>
+            <p class="rightText">
+              Part-Time Game Designer / Illustrator<br>
+              <strong style="color:rgba(255,255,255,.9)">10–20 hrs/week</strong> • <strong style="color:rgba(255,255,255,.9)">$28–30/hr</strong> + royalties
+            </p>
+
+            <p class="rightText">
+              If you enjoy game design, visual layout, and iterating toward something great, reach out.
+            </p>
+
+            <a class="btn btnPrimary" style="width:100%; justify-content:center"
+               href="mailto:ken.obrien@obeegames.com?subject=OBEE%20Games%20-%20Designer%20Inquiry">
+              Contact About the Role
+            </a>
+
+            <p class="mini" style="margin-top:12px">
+              Want this page even cleaner? Remove the “Careers” button or replace it with your Handshake link once posted.
+            </p>
+          </aside>
+        </div>
+      </section>
+
+      <footer>
+        Built with a simple one-page site. More soon.
+      </footer>
+    </div>
+  </div>
+</body>
+</html>
